@@ -11,6 +11,7 @@ import { development } from './api/config/data/db';
 
 //Routes
 import { router } from "./api/routes";
+
 const app = express();
 
 //setup express application 
@@ -27,9 +28,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(router);
 //Bind routs 
-//routes(app);
+app.use(router);
+
 //wild route
 app.get('*', (req, res) => res.status(200).send({ message: 'Requested Page Not Avilable', })); 
 server.listen(APPLICATION_PORT, development.host, () => { console.log(`Server running at http://${development.host}:${APPLICATION_PORT}/`); });
