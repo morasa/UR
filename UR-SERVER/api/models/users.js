@@ -1,5 +1,6 @@
 'use strict';
 import mongoose from 'mongoose';
+import validator from 'validator';
 
 const user_schema = new mongoose.Schema({
   user_name: {
@@ -9,6 +10,16 @@ const user_schema = new mongoose.Schema({
     validate(value){
         if(value == ""){
             throw new Error("menu can't be empty value");
+        }
+      }
+  },
+  user_code: {
+    type: Number,
+    required: [true, 'user codee is a required value'],
+    trim: true,
+    validate(value){
+        if(value == ""){
+            throw new Error("user can't be empty value");
         }
       }
   },
