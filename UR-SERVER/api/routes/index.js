@@ -24,5 +24,5 @@ router.route("/api/users/:user_code")
 router.route("/api/users/:user_code")
       .patch(user.updateByCode);
 router.route("/login")
-      .get(user.login);
+      .post(user.login);
       

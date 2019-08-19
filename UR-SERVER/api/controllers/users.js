@@ -100,9 +100,14 @@ export const updateByCode = async (req,res) =>{
 
 export const login = async (req,res) =>{
     console.log("GET USER Login Details");
-    const {email, password } = req.body; 
     try {
+        console.log("body", req.body);
+        const {email, password } = req.body; 
+        
         const userobj = await user.findOne({'email':email,'password':password});
+
+        console.log("userobj>>>", userobj );
+
         if (!userobj) {
             return res.status(404).send();
         }

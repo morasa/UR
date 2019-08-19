@@ -6,17 +6,19 @@ import { AppComponent } from './app.component';
 import { AccountModule } from './account/account.module';
 import { AdminModule } from './admin/admin.module';
 import { ClientModule } from './client/client.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     AccountModule,
     AdminModule,
-    ClientModule
+    ClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

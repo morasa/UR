@@ -1,0 +1,62 @@
+<div class="container bg-gradient-primary">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+        <div class="col-xl-8 col-lg-8">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Welcome to UR Recipies</h1>
+                                </div>
+                                <form class="user" (ngSubmit)="onSubmit(); loginForm.reset();" #loginForm="ngForm">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-control-user"
+                                            id="inputEmail" aria-describedby="emailHelp"
+                                            placeholder="Enter Email Address..."
+                                            [(ngModel)]="email" name="inputEmail" required #inputEmail="ngModel">
+                                            <div [hidden]="inputEmail.invalid"
+                                                    class="danger">
+                                                    <div *ngIf="inputEmail.errors?.required">
+                                                        Email is required.
+                                                      </div>
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="inputPassword" placeholder="Password"
+                                            [(ngModel)]="password" name="inputPassword" required #inputPassword="ngModel">
+                                            <div [hidden]="inputPassword.invalid"
+                                                    class="danger">
+                                                    <div *ngIf="inputPassword.errors?.required">
+                                                        Password is required.
+                                                      </div>
+                                            </div>
+                                    </div> 
+                                    <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-primary btn-user btn-block">
+                                        Login
+                                    </button>
+
+                                </form>
+                                <!--<hr>
+                                <div class="text-center">
+                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="small" href="register.html">Create an Account!</a>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
