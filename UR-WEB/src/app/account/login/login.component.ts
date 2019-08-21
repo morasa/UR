@@ -15,13 +15,10 @@ export class LoginComponent implements OnInit {
   submitted = false;
   returnUrl: string;
 
-  constructor( private route: ActivatedRoute,
-               private router: Router,
-               private loginService:LoginService) {
-
-                if (this.loginService.currentUserValue) {
-                  this.router.navigate(['/']);
-              }
+  constructor( private route: ActivatedRoute,private router: Router,private loginService:LoginService) {
+          if (this.loginService.currentUserValue) {
+                this.router.navigate(['/']);
+          }
    }
   
   ngOnInit() {
@@ -38,7 +35,7 @@ export class LoginComponent implements OnInit {
      .subscribe(
          data => {
             console.log("Check user data", data);
-            //this.router.navigate([this.returnUrl]);
+            this.router.navigate(['/menus']);
          },
          error => {
             console.log("ERROR user data:", error);

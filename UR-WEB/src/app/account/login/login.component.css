@@ -1,3 +1,6 @@
 .danger{
     color: red;
 }
+.bg-gradient-primary{
+    background-color: #f8f8f8 !important;
+}

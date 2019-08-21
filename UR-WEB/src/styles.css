@@ -1,2 +1,141 @@
-/* You can add global styles to this file, and also import other style files */
 @import '@fortawesome/fontawesome-free/css/all.css';
+
+.bg-white {
+    background-color: #31190d!important;
+}
+.bg-gradient-primary {
+    background: black !important;
+}
+.accordion .sidebar {
+    z-index: 1;
+    position: absolute;
+    width: 246px;
+    margin-top: 0px !important;
+    min-height: 100vh;
+}
+#accordionSidebar{
+	margin-top: 0px !important;
+	min-height: 100vh;
+}
+.sidebar .sidebar-brand {
+    height: 4.375rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+    z-index: 1;
+}
+.sidebar-dark .sidebar-brand {
+    color: #fff;
+}
+
+
+.d-flex {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+a {
+    color: #4e73df;
+    text-decoration: none;
+    background-color: transparent;
+}
+.align-items-center {
+    -webkit-box-align: center!important;
+    -ms-flex-align: center!important;
+    align-items: center!important;
+}
+
+.justify-content-center {
+    -webkit-box-pack: center!important;
+    -ms-flex-pack: center!important;
+    justify-content: center!important;
+}
+.sidebar-dark hr.sidebar-divider {
+    border-top: 1px solid rgba(255,255,255,.15);
+}
+.sidebar hr.sidebar-divider {
+    margin: 0 1rem 1rem;
+}
+.sidebar .nav-item {
+    position: relative;
+}
+.sidebar-dark .nav-item .nav-link {
+    color: rgba(255,255,255,.8);
+}
+
+.sidebar .nav-item .nav-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    width: 14rem;
+}
+
+#wrapper #content-wrapper {
+    background-color: #f8f9fc;
+    width: 82%;
+    overflow-x: hidden;
+    margin-left: 18%;
+}
+.flex-column {
+    -webkit-box-orient: vertical!important;
+    -webkit-box-direction: normal!important;
+    -ms-flex-direction: column!important;
+    flex-direction: column!important;
+}
+
+#wrapper #content-wrapper #content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+}
+
+.topbar {
+    height: 4.375rem;
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .nav-link {
+	color: #eaeaee;
+	cursor: pointer;
+}
+
+.text-gray-600 {
+    color: #e6e6e6!important;
+}
+
+.topbar .topbar-divider {
+    width: 0;
+    border-right: 1px solid #e3e6f0;
+    height: calc(4.375rem - 2rem);
+    margin: auto 1rem;
+}
+.ml-md-3, .mx-md-3 {
+    margin-left: 10rem!important;
+}
+.btn .btn-success{
+	color:white;
+}
+.btn-new-position{
+	margin-top: -5px;
+    margin-left: 15px;
+    color: #fff !important;
+}
+.text-gap{
+	padding-left:5px;
+}
+.table-title {
+	padding-bottom: 0px;
+    background: #435d7d;
+    color: #fff;
+    padding: 1px 30px;
+    margin: 0px 0px 0px;
+    border-radius: 3px 3px 0 0;
+}
+
+.search-pad-group{
+	top:5px;
+}
