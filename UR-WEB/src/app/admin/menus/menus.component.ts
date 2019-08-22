@@ -49,8 +49,7 @@ export class MenusComponent implements OnInit {
         .pipe(first())
         .subscribe(
             data => {
-               console.log("Success date==>", data.message);
-               this.message= data.message;
+               this.message= (data as any).message;
             },
             error => {
               console.log("Success date==>", error);
@@ -65,12 +64,13 @@ export class MenusComponent implements OnInit {
   }
 
   deleteRecord(id){
+    console.log("id", id);
     this.menuService.delete(id)
     .pipe(first())
     .subscribe(
         data => {
-           console.log("Success date==>", data.message);
-           this.message= data.message;
+          console.log("Message::",(data as any).message);
+          this.loadAllMenus();
         },
         error => {
           console.log("Success date==>", error);

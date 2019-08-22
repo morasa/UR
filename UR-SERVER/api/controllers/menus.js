@@ -30,3 +30,21 @@ export const create = (req, res) => {
     ).catch(error => res.status(STATUS_CODE.CLIENT_ERROR)
                         .send(ERROR.MENU_NOT_CREATED, error));
 };
+
+/*@Delete user by Menu Id */
+export const deleteById = (req,res)=> {
+    console.log("delete User::::", req.params.id);
+    menu.findOneAndRemove({ _id: req.params.id })
+        .then(menu => res.status(STATUS_CODE.OK)
+            .send({
+                success: true,
+                message: SUCCESS.MENU_DELETED,
+                menu
+            })
+        ).catch(error => res.status(STATUS_CODE.CLIENT_ERROR)
+            .send({
+                success: false,
+                message: ERROR.MENU_NOT_DELETE,
+                error
+            }));
+}

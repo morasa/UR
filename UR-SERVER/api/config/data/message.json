@@ -2,14 +2,16 @@
     "ERROR":{
         "MENU_NOT_CREATED":"Menu invalid ",
         "ROLE_NOT_CREATED":"unable to create role",
-        "USER_NOT_CREATED":"unable to create user"
+        "USER_NOT_CREATED":"unable to create user",
+		"MENU_NOT_DELETE":"unable to delte menu"
     },
     "SUCCESS":{
         "MENU_CREATED":"Menu created successfully",
         "ROLE_CREATED":"Role created successfully",
         "USER_CREATED":"User created successfully",
         "USER_DELETED":"User deleted successfully",
-        "VALID_USER":"User Authenticated successfully"
+        "VALID_USER":"User Authenticated successfully",
+		"MENU_DELETED":"Menu deleted successfully"
     },
     "STATUS_CODE":{
         "OK":200,

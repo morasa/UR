@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
 import { MenusComponent } from './menus/menus.component';
+import { AdminComponent } from './admin/admin.component';
+import { SideMenuComponent } from './side-menu/side-menu.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [MenusComponent],
+  declarations: [MenusComponent, AdminComponent, SideMenuComponent, HeaderComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule ,

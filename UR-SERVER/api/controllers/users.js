@@ -99,29 +99,41 @@ export const updateByCode = async (req,res) =>{
 }
 
 export const login = async (req,res) =>{
-    console.log("GET USER Login Details");
+    console.info("REQUEST:Login");
     try {
-        console.log("body", req.body);
         const {email, password } = req.body; 
         
         const userobj = await user.findOne({'email':email,'password':password});
 
-        console.log("userobj>>>", userobj );
-
         if (!userobj) {
-            return res.status(404).send();
+            return res.status(404).send({
+										success: false,
+										message: "Worng Credentials"
+									});
         }
-        console.log("userobj", userobj);
+		console.info("User Avilable");
         const payload = {email, password };
+		
+		//Generate Token
         const token = jwt.sign(payload,privateKey);
-        console.log("token", token);
-        res.status(STATUS_CODE.OK)
-            .send({
+		
+		const defaultUrl = (userobj.role_code=="suadmin")?"/admin":"/recipies";
+		
+		const user_details = {
+								email:userobj.email,
+								user_code:userobj.user_code,
+								user_name:userobj.user_name
+							};
+							
+		const response_body = {
                 success: true,
                 message: SUCCESS.VALID_USER,
-                user,
+                user:user_details,
+				defaultUrl,
                 token
-            });
+            };
+			
+        res.status(STATUS_CODE.OK).send(response_body);
     } catch (e) {
         res.status(500).send(e);
     }

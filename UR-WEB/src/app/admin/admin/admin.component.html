@@ -1,0 +1,14 @@
+<div id="wrapper">
+    <!--Side Menu section-->
+    <router-outlet name="sidemenu"></router-outlet>
+    <!-- Menus Section -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+          <router-outlet name="header"></router-outlet>
+          <!--disaply container-->
+          <div class="container">  
+                <router-outlet name="display"></router-outlet>       
+          </div><!--disaply - container-->
+        </div><!--content-->
+    </div><!--content-wrapper -->
+</div>  

@@ -27,7 +27,7 @@ export class MenuService {
   }
 
   delete(id: string) {
-    return this.http.delete(`${config.apiUrl}/users/${id}`);
+    return this.http.delete(`${config.apiUrl}/api/menus/delete/${id}`);
   }
 
 

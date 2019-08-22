@@ -9,6 +9,8 @@ router.route("/api/menus/list")
       .get(menu.list);
 router.route("/api/menus/create")
       .post(menu.create);
+router.route("/api/menus/delete/:id")
+      .delete(menu.deleteById);
 router.route("/api/roles/list")
       .get(role.list);
 router.route("/api/roles/create")
