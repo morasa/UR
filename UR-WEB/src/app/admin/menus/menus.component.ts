@@ -34,13 +34,12 @@ export class MenusComponent implements OnInit {
   private loadAllMenus(){
     this.menuService.getAll()
         .pipe(first())
-        .subscribe(list => {console.log(list); this.menus = list});
+        .subscribe(list =>this.menus = list);
   }
 
   onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
-    console.log("registerForm", this.registerForm);
     if (this.registerForm.invalid) {
         return;
     }
@@ -50,6 +49,7 @@ export class MenusComponent implements OnInit {
         .subscribe(
             data => {
                this.message= (data as any).message;
+               close();
             },
             error => {
               console.log("Success date==>", error);
@@ -57,9 +57,9 @@ export class MenusComponent implements OnInit {
   }
 
   close(){
-    console.log("close modal");
     if(this.submitted){
       this.loadAllMenus();
+      this.submitted=false;
     }
   }
 

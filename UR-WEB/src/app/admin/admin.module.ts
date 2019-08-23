@@ -6,9 +6,11 @@ import { MenusComponent } from './menus/menus.component';
 import { AdminComponent } from './admin/admin.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HeaderComponent } from './header/header.component';
+import { RolesComponent } from './roles/roles.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
-  declarations: [MenusComponent, AdminComponent, SideMenuComponent, HeaderComponent],
+  declarations: [MenusComponent, AdminComponent, SideMenuComponent, HeaderComponent, RolesComponent, UsersComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule ,

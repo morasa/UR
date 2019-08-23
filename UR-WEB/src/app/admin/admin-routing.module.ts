@@ -4,6 +4,8 @@ import { MenusComponent } from './menus/menus.component';
 import { AdminComponent } from './admin/admin.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HeaderComponent } from './header/header.component';
+import { RolesComponent } from './roles/roles.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
       {
@@ -23,6 +25,16 @@ const routes: Routes = [
                     path: '',
                     outlet: 'header',
                     component: HeaderComponent
+                  },
+                  {
+                    path: 'roles',
+                    outlet: 'display',
+                    component: RolesComponent    
+                  },
+                  {
+                    path: 'users',
+                    outlet: 'display',
+                    component: UsersComponent    
                   }
                 ]
       }

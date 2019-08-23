@@ -1,10 +1,10 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 
 .bg-white {
-    background-color: #31190d!important;
+    background-color: #4c3c3c!important;
 }
 .bg-gradient-primary {
-    background: black !important;
+    background: #5f4c4c !important;
 }
 .accordion .sidebar {
     z-index: 1;
@@ -20,7 +20,7 @@
 .sidebar .sidebar-brand {
     height: 4.375rem;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 24px;
     font-weight: 800;
     padding: 1.5rem 1rem;
     text-align: center;
@@ -28,8 +28,11 @@
     letter-spacing: .05rem;
     z-index: 1;
 }
+
 .sidebar-dark .sidebar-brand {
-    color: #fff;
+    color: #c5aa6a;
+    background-color: #4c3c3c;
+    font-family: serif;
 }
 
 
@@ -104,7 +107,7 @@ a {
 }
 
 .text-gray-600 {
-    color: #e6e6e6!important;
+    color: #e4c57c!important;
 }
 
 .topbar .topbar-divider {
@@ -116,26 +119,41 @@ a {
 .ml-md-3, .mx-md-3 {
     margin-left: 10rem!important;
 }
-.btn .btn-success{
-	color:white;
-}
+
 .btn-new-position{
-	margin-top: -5px;
-    margin-left: 15px;
-    color: #fff !important;
+	padding-top: 5px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    background-color: #5f4c4c !important;
+    border-color: #4c3c3c !important
 }
 .text-gap{
-	padding-left:5px;
+	padding-left:20px;
 }
 .table-title {
-	padding-bottom: 0px;
-    background: #435d7d;
+    padding-bottom: 0px;
+    background: #c5aa6a;
     color: #fff;
     padding: 1px 30px;
     margin: 0px 0px 0px;
     border-radius: 3px 3px 0 0;
 }
 
-.search-pad-group{
-	top:5px;
+.icon-postion{
+    position: absolute;
+    left: 21px;
+}
+
+.table-header{
+    position: absolute;
+    top: 9px;
+    font-size: 20px;
+    left: 0px;
+    color:#404040;
+}
+.menu-icon{
+    color:#fddd92 !important;
+}
+.content-bg-color{
+   background-color: #ffffff!important;
 }
