@@ -24,10 +24,19 @@ export class LoginService {
   public login(email:string,password:string){   
     const url = 'http://127.0.0.1:5000/login';      
 
-    return this.http.post<any>(url,{ email, password }).pipe(map(user => {         
-           localStorage.setItem('currentUser', JSON.stringify(user));
-            this.currentUserSubject.next(user);
-            return user;
+    return this.http.post<any>(url,{ email, password }).pipe(map(userObj => {         
+           
+           let userModel = {
+                              username: userObj.user.user_name,
+                              usercode: userObj.user.user_code,                             
+                              email: userObj.user.email,
+                              token: userObj.token
+                          };
+
+            localStorage.setItem('currentUser', JSON.stringify(userModel));
+
+            this.currentUserSubject.next(userModel);
+            return userObj;
         }));
   }
 

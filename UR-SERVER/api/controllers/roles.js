@@ -17,11 +17,10 @@ export const list = (req, res) => {
 
 /*@Create Rolese */
 export const create = (req, res) => {
-    console.log("Create a Role");
 
-    const {role_name,role_code,created_by,created_on} = req.body;
+    const {role_name,role_code,created_by} = req.body;
 
-    role.create({role_name,role_code,created_by,created_on})
+    role.create({role_name,role_code,created_by})
         .then(role => res.status(STATUS_CODE.CREATED)
                         .send({
                         success: true,
@@ -32,5 +31,24 @@ export const create = (req, res) => {
         .catch(error => res.status(STATUS_CODE.CLIENT_ERROR)
                           .send(ERROR.MENU_NOT_CREATED, error)
         )
+};
+/*@delete role*/
+export const deleteRole = async (req, res) => {
+    try{
+        
+        const { id } = req.params;
+		
+        const roleCollection = await role.findOneAndDelete({_id: id,});
+        if (!roleCollection) {
+              res.status(400).send(ERROR.USER);
+        }
+        res.status(200).send({
+                        success: true,
+                        message: SUCCESS.ROLE_DELETED,
+                        roleCollection
+                      });
+    }catch (e) {
+            res.status(500).send({ error:ERROR.USER,e})
+    }
 };
 

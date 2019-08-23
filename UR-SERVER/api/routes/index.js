@@ -22,7 +22,9 @@ router.route("/api/menus/delete/:id")
 router.route("/api/roles/list")
       .get(role.list);
 router.route("/api/roles/create")
-      .post(role.create); 
+      .post(role.create);
+router.route("/api/roles/delete/:id")
+      .delete(role.deleteRole);	  
 //users api routes
 router.route("/api/users/:user_code")
       .delete(user.deleteByCode);

@@ -11,7 +11,8 @@
         "USER_CREATED":"User created successfully",
         "USER_DELETED":"User deleted successfully",
         "VALID_USER":"User Authenticated successfully",
-		"MENU_DELETED":"Menu deleted successfully"
+		"MENU_DELETED":"Menu deleted successfully",
+		"ROLE_DELETED":"Menu deleted successfully"
     },
     "STATUS_CODE":{
         "OK":200,
