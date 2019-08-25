@@ -3,4 +3,5 @@ export class User {
     usercode: string;
     email: string;
     token:string;
+    role:string;
 }

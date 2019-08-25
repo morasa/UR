@@ -25,12 +25,13 @@ export class LoginService {
     const url = 'http://127.0.0.1:5000/login';      
 
     return this.http.post<any>(url,{ email, password }).pipe(map(userObj => {         
-           
+           console.log("userOBje", userObj);
            let userModel = {
                               username: userObj.user.user_name,
                               usercode: userObj.user.user_code,                             
                               email: userObj.user.email,
-                              token: userObj.token
+                              token: userObj.token,
+                              role:userObj.user.user_role
                           };
 
             localStorage.setItem('currentUser', JSON.stringify(userModel));

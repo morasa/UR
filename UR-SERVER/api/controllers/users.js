@@ -123,7 +123,8 @@ export const login = async (req,res) =>{
 		const user_details = {
 								email:userobj.email,
 								user_code:userobj.user_code,
-								user_name:userobj.user_name
+                                user_name:userobj.user_name,
+                                user_role:userobj.role_code
 							};
 							
 		const response_body = {

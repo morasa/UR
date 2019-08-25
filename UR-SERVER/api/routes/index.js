@@ -3,6 +3,7 @@ import * as menu from "../controllers/menus";
 import * as role from "../controllers/roles";
 import * as user from "../controllers/users";
 import * as token from "../middleware/verifyToken";
+import * as access from "../controllers/menu_role_action";
 
 export const router = Router();
 //login
@@ -36,5 +37,14 @@ router.route("/api/users/:user_code")
       .get(user.findByCode);
 router.route("/api/users/:user_code")
       .patch(user.updateByCode);
+//menu Access api routes
+router.route("/api/access/list")
+.get(access.list);
+router.route("/api/access/create")
+.post(access.create);
+router.route("/api/access/delete/:id")
+.delete(access.deleteAccess);
+router.route("/api/access/list/:role_code")
+.get(access.menuList);
 
       
