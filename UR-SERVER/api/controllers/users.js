@@ -21,9 +21,10 @@ export const list = (req,res)=>{
 /*@Insert User */
 export const create = (req,res)=>{
     console.log("Create User::::");
+    let password="1234567";
+    const {user_name,email,role_code,created_by,user_code} = req.body;
 
-    const {user_name,email,password,role_code,created_by,user_code} = req.body;
-
+    console.log("CheckUser", req.body);
     user.create({user_name,email,password,role_code,created_by,user_code})
                           .then(user => res.status(STATUS_CODE.CREATED)
                                                 .send({

@@ -22,7 +22,7 @@
           </form> -->
           
             <a class="btn btn-success btn-new-position" 
-                href="#addEmployeeModal"  data-toggle="modal">
+                href="#addUserModal"  data-toggle="modal">
               <i class="material-icons icon-postion">&#xE147;</i> 
               <span class="text-gap">Add User</span>
             </a>
@@ -36,23 +36,25 @@
           <th>S.No</th>
           <th>User Name</th>
           <th>User Code</th>
+          <th>Role</th>
           <th>Email</th>
           <th>Created BY</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <!-- <tr *ngFor="let menu of menus.menusList;let i = index">
+        <tr *ngFor="let user of users.usersList;let i = index">
           <td>{{i+1}}</td>
-          <td>{{menu.menu_name}}</td>
-          <td>{{menu.menu_url}}</td>
-          <td>{{menu.menu_code}}</td>
-          <td>{{menu.menu_description}}</td>
+          <td>{{user.user_name}}</td>
+          <td>{{user.user_code}}</td>
+          <td>{{user.role_code}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.created_by}}</td>
           <td>
-            <a (click)="editRecord(menu._id)" class="btn table-icon"><i class="material-icons">&#xE254;</i></a>
-            <a (click)="deleteRecord(menu._id)"class="btn table-icon"><i class="material-icons" title="Delete">&#xE872;</i></a>
+            <a (click)="editRecord(user._id)" class="btn table-icon"><i class="material-icons">&#xE254;</i></a>
+            <a (click)="deleteUser(user.user_code)"class="btn table-icon"><i class="material-icons" title="Delete">&#xE872;</i></a>
           </td>
-        </tr> -->
+        </tr> 
         <tr>
       </tbody>
     </table>
@@ -72,47 +74,50 @@
     </div> 
     -->
     <!-- Edit Modal HTML -->
-<div id="addEmployeeModal" class="modal fade">
+<div id="addUserModal" class="modal fade">
   <div class="modal-dialog" data-target="#modal">
     <div class="modal-content">             
         <div class="modal-header">
-          <h2 class="modal-title">Create Menu</h2>
+          <h2 class="modal-title">Add User</h2>
           <button type="button" class="close" data-dismiss="modal" (click)="close()" aria-hidden="true">&times;</button>
         </div>
         <!--Header-->
         <div class="modal-body">
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           
-           <!--Menu name-->
+           <!--User name-->
             <div class="form-group">
-                <label for="menuName">Menu Name</label>
-                <input type="text" formControlName="menuName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.menuName.errors }" />
-                <div *ngIf="submitted && f.menuName.errors" class="invalid-feedback">
-                    <div *ngIf="f.menuName.errors.required">Menu Name is required</div>
+                <label for="userName">User Name</label>
+                <input type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+                <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                    <div *ngIf="f.userName.errors.required">User Name is required</div>
                 </div>
             </div>
-            <!--Menu URL-->
+            <!--User Code-->
             <div class="form-group">
-                <label for="menuUrl">Menu Url</label>
-                <input type="text" formControlName="menuUrl" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.menuUrl.errors }" />
-                <div *ngIf="submitted && f.menuUrl.errors" class="invalid-feedback">
-                    <div *ngIf="f.menuUrl.errors.required">Menu Url is required</div>
+                <label for="userCode">User Code</label>
+                <input type="text" formControlName="userCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userCode.errors }" />
+                <div *ngIf="submitted && f.userCode.errors" class="invalid-feedback">
+                    <div *ngIf="f.userCode.errors.required">User Code is required</div>
                 </div>
             </div>
-            <!--Menu Code-->
+            <!--Role Code-->
             <div class="form-group">
-                <label for="menuCode">Menu Code</label>
-                <input type="text" formControlName="menuCode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.menuCode.errors }" />
-                <div *ngIf="submitted && f.menuCode.errors" class="invalid-feedback">
-                    <div *ngIf="f.menuCode.errors.required">Menu Code is required</div>
+                <label for="roleCode">Role Code</label>           
+                <select class="form-control" formControlName="roleCode" [ngClass]="{ 'is-invalid': submitted && f.roleCode.errors }"  id="userRoleCode">
+                  <option *ngFor="let opt of usersRoleList" [value]="opt.role_code">{{opt.role_name}}</option>
+                </select>
+                
+                <div *ngIf="submitted && f.roleCode.errors" class="invalid-feedback">
+                    <div *ngIf="f.roleCode.errors.required">Role Code is required</div>
                 </div>
             </div>
-            <!--Menu Description-->
+            <!--User Email-->
             <div class="form-group">
-                <label for="menuDescription">Menu Description</label>
-                <input type="text" formControlName="menuDescription" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.menuDescription.errors }" />
-                <div *ngIf="submitted && f.menuDescription.errors" class="invalid-feedback">
-                    <div *ngIf="f.menuDescription.errors.required">Menu Description is required</div>
+                <label for="email">E-mail</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">User Email is required</div>
                 </div>
             </div>                  
             <input type="button" (click)="close()" class="btn btn-default" data-dismiss="modal" value="Cancel">

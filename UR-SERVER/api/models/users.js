@@ -14,7 +14,7 @@ const user_schema = new mongoose.Schema({
       }
   },
   user_code: {
-    type: Number,
+    type: String,
     required: [true, 'user codee is a required value'],
     trim: true,
     validate(value){

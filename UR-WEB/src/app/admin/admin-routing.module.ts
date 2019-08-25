@@ -6,6 +6,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HeaderComponent } from './header/header.component';
 import { RolesComponent } from './roles/roles.component';
 import { UsersComponent } from './users/users.component';
+import { MenuAccessComponent } from './menu-access/menu-access.component'
 
 const routes: Routes = [
       {
@@ -35,6 +36,11 @@ const routes: Routes = [
                     path: 'users',
                     outlet: 'display',
                     component: UsersComponent    
+                  },
+                  {
+                    path: 'menuacess',
+                    outlet: 'display',
+                    component: MenuAccessComponent    
                   }
                 ]
       }

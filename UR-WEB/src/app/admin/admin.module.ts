@@ -9,9 +9,10 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HeaderComponent } from './header/header.component';
 import { RolesComponent } from './roles/roles.component';
 import { UsersComponent } from './users/users.component';
+import { MenuAccessComponent } from './menu-access/menu-access.component';
 
 @NgModule({
-  declarations: [MenusComponent, AdminComponent, SideMenuComponent, HeaderComponent, RolesComponent, UsersComponent],
+  declarations: [MenusComponent, AdminComponent, SideMenuComponent, HeaderComponent, RolesComponent, UsersComponent, MenuAccessComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,
