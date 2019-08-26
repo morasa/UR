@@ -15,11 +15,17 @@ export class UsersComponent implements OnInit {
   submitted = false;
   message="";
   usersRoleList = [];
+  currentUserAction:any = {create: false, 
+                           delete: false, 
+                          read: false, 
+                          update: false}
+  
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private userService:UserService) { }
 
   ngOnInit() {
+    this.getActionsList();
     this.getUserRoles();
     this.loadAllUsers();
     this.registerForm = this.formBuilder.group({
@@ -87,5 +93,16 @@ export class UsersComponent implements OnInit {
         });
   }
 
+  private getActionsList(){
+    this.userService.getActions().pipe(first()).subscribe(userActions => {     
+     
+        this.currentUserAction = JSON.parse((userActions as any).roleCollection.filter(function(a:any){
+                return (a.menu_code === "USERS");
+        })[0].user_action);
+
+        console.log("User ACTIONS-currentUserAction", this.currentUserAction);
+
+    });
+  }
 
 }

@@ -8,7 +8,7 @@
             <b>Users List</b>
           </h2>
         </div>
-        <div class="col-sm-8 col-md-2">
+        <div class="col-sm-8 col-md-2" *ngIf="currentUserAction.create">
           <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -51,8 +51,8 @@
           <td>{{user.email}}</td>
           <td>{{user.created_by}}</td>
           <td>
-            <a (click)="editRecord(user._id)" class="btn table-icon"><i class="material-icons">&#xE254;</i></a>
-            <a (click)="deleteUser(user.user_code)"class="btn table-icon"><i class="material-icons" title="Delete">&#xE872;</i></a>
+            <a *ngIf="currentUserAction.update" (click)="editRecord(user._id)" class="btn table-icon"><i class="material-icons">&#xE254;</i></a>
+            <a *ngIf="currentUserAction.delete" (click)="deleteUser(user.user_code)"class="btn table-icon"><i class="material-icons" title="Delete">&#xE872;</i></a>
           </td>
         </tr> 
         <tr>

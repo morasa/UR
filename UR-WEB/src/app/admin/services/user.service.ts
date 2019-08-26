@@ -4,6 +4,7 @@ import { LoginService } from '../../account/service/login.service';
 import { RoleService} from './role.service';
 import { User } from '../models';
 import { config } from '../config';
+import { SideMenusService } from './side-menus.service'
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class UserService {
 
   constructor(private http: HttpClient,
               private loginService:LoginService,
-              private roleService:RoleService) { }
+              private roleService:RoleService,
+              private sideMenusService:SideMenusService) { }
 
   getUsers(){
     return this.http.get<User[]>(`${config.apiUrl}/api/users/list`);
@@ -39,5 +41,10 @@ export class UserService {
   deleteUser(user_code: string) {
     return this.http.delete(`${config.apiUrl}/api/users/${user_code}`);
   }//EOF Delet
+
+  getActions(){
+    return this.sideMenusService.getUserMenuList();
+  }
+  
 
 }
