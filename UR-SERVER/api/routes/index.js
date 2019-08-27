@@ -4,6 +4,8 @@ import * as role from "../controllers/roles";
 import * as user from "../controllers/users";
 import * as token from "../middleware/verifyToken";
 import * as access from "../controllers/menu_role_action";
+import * as recipes from "../controllers/recipes";
+import { upload } from "../middleware/uploadFile";
 
 export const router = Router();
 //login
@@ -46,5 +48,9 @@ router.route("/api/access/delete/:id")
 .delete(access.deleteAccess);
 router.route("/api/access/list/:role_code")
 .get(access.menuList);
+//file upload
+router.route("/api/upload/recipe")
+.get(recipes.list)
+.post(upload.single('recipe_img'),recipes.create);
 
       

@@ -13,7 +13,7 @@ import { development } from './api/config/data/db';
 import { router } from "./api/routes";
 
 const app = express();
-
+app.use(express.static(__dirname + '/assets/uploads'));
 //setup express application 
 const server = http.createServer(app);
 app.use(logger('dev')); 
