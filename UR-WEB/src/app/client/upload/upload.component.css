@@ -1,0 +1,12 @@
+label.file1 {
+    background: #b68834;
+    color: #fff;
+    border-radius: 5px;
+    padding: 6px;
+    cursor: pointer;
+  }
+  
+  label.file1:hover,input#addrow:hover {
+    background: #230c05;
+   
+  }

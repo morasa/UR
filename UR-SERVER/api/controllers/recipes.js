@@ -5,6 +5,8 @@ const { recipe } = model;
 
 /*Insert Recipe item*/
 export const create = (req, res) => {
+  console.log(req.file);
+  console.log(req.body);
 
   let recipe_img_path = req.file.filename;
   const { recipe_name, 

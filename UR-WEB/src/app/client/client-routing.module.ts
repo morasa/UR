@@ -1,40 +1,61 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UploadComponent } from './upload/upload.component';
+import { RecipeComponent } from './recipe/recipe.component';
+import { ClientHeaderComponent } from './client-header/client-header.component';
+import { ListviewComponent } from './listview/listview.component';
+import { FootorComponent } from './footor/footor.component';
+import { ProfileComponent } from './profile/profile.component';
+import { DetailViewComponent } from './detail-view/detail-view.component';
 const routes: Routes = [{
-  path: 'upload',
-  component: UploadComponent,
-  /*children: [{
+  path: 'recipe',
+  component: RecipeComponent,
+  children: [{
               path: '',
-              outlet: 'display',
-              component: MenusComponent    
+              outlet: 'footer',
+              component:FootorComponent    
             },
             {
               path: '',
-              outlet: 'sidemenu',
-              component: SideMenuComponent
+              outlet: 'middlecontent',
+              component:ListviewComponent
             },
             {
               path: '',
               outlet: 'header',
-              component: HeaderComponent
+              component:ClientHeaderComponent
             },
             {
-              path: 'roles',
-              outlet: 'display',
-              component: RolesComponent    
+              path: 'upload',
+              outlet: 'middlecontent',
+              component:UploadComponent
             },
             {
-              path: 'users',
-              outlet: 'display',
-              component: UsersComponent    
+              path: 'profile',
+              outlet: 'middlecontent',
+              component:ProfileComponent
             },
             {
-              path: 'menuacess',
-              outlet: 'display',
-              component: MenuAccessComponent    
-            }
-          ]*/
+              path: 'detail',
+              outlet: 'middlecontent',
+              component:DetailViewComponent
+            },
+            // {
+            //   path: 'roles',
+            //   outlet: 'display',
+            //   component: RolesComponent    
+            // },
+            // {
+            //   path: 'users',
+            //   outlet: 'display',
+            //   component: UsersComponent    
+            // },
+            // {
+            //   path: 'menuacess',
+            //   outlet: 'display',
+            //   component: MenuAccessComponent    
+            // }
+          ]
         }];
 
 @NgModule({
