@@ -7,28 +7,17 @@
                    </div>
               </div>
          </div>
+
          <div class="row">
-              <div class="col-lg-3">
-                   <img src="../../../assets/recipe/img/1.jpg" class="img-fluid imagestatic">
-                   <div class="single-menu">
+              <div class="col-lg-3" *ngFor="let item of this.recipiesList;">
+                <img src='{{serverUrl}}/{{item.recipe_img_path}}' class="img-fluid imagestatic">
+                    <div class="single-menu">
                         <div class="title-div justify-content-between d-flex">
-                             <h4><a [routerLink]="[{ outlets: { middlecontent: ['detail'] } }]">Cappuccino</a></h4>
+                             <h4><a [routerLink]="[{ outlets: { middlecontent: ['detail'] } }]">{{item.recipe_name}}</a></h4>
                              
                         </div>
                    </div>
               </div>
-
-              <div class="col-lg-3">
-                   <img src="../../../assets/recipe/img/1.jpg" class="img-fluid imagestatic">
-                   <div class="single-menu">
-                        <div class="title-div justify-content-between d-flex">
-                             <h4><a href="description.html">Cappuccino</a></h4>
-                             
-                        </div>
-                   </div>
-              </div>
-
-          
          </div>
     </div>
 </section>

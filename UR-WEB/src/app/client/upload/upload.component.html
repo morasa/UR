@@ -2,7 +2,7 @@
      <div class="container">
           <div class="row">
                <div class="col-lg-8 col-md-8">
-                    <h3 class="mb-30">Add Recipe details</h3>
+                    <h3 class="mb-30">Would like to add you recipe ?</h3>
                     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form_recipe">
                          
                          <div class="col-12">
@@ -26,7 +26,7 @@
                                    
                                    Upload Recipe Images &hellip;
                                    
-                                   <input #imageInput type="file" multiple style="display: none;" formControlName="recipefile" class="effect-9" accept="image/*"
+                                   <input #imageInput type="file" multiple style="display: none;" class="effect-9" accept="image/*"
                                    (change)="fileProgress(imageInput)">
                               
                               </label>
@@ -59,8 +59,10 @@
 
 
                                              <td class="col-sm-2">
-                                              <button type="button" class="btn btn-lg btn-block" id="addrow" 
-                                                       (click)="delete_primary_ingredients()">Delete</button>
+                                              <button type="button" class="btn btn-sm btn-block" id="addrow" 
+                                                       (click)="delete_primary_ingredients()">
+                                                       <i class="fa fa-trash trash" aria-hidden="true"></i>
+                                             </button>
 
                                              </td>
                                         </tr>
@@ -69,7 +71,7 @@
                                         <tr>
                                              <td colspan="5" style="text-align: left;">
                                                   <button type="button" class="btn btn-lg btn-block" id="addrow" 
-                                                  (click)="add_primary_ingredients()">Add Row</button>
+                                                  (click)="add_primary_ingredients()">Add More Ingredients</button>
                                              </td>
                                         </tr>
                                         <tr>
@@ -78,40 +80,36 @@
                               </table>
                          </div>
 
-                         <!---
+                         
                          <h4 class="mb-30 ">Secondary Incredients</h4>
 
                          <div class="">
                               <table id="myTable" class=" table order-list" cellpadding="0" cellspacing="0">
 
-                                   <tbody>
-                                        <tr class="paddingtop">
+                                   <tbody formArrayName="ing_secondary_ingredients">
+                                        <tr class="paddingtop" *ngFor="let item of ing_secondary_ingredients.controls; let pointIndex=index" [formGroupName]="pointIndex">
                                              <td class="col-sm-4 paddingadd">
-                                                  <input class="effect-9" type="text"
+                                                  <input class="effect-9" type="text" formControlName="ing_name"
                                                        placeholder="Ingredients" />
-                                                  <span class="focus-border">
-                                                       <i></i>
-                                                  </span>
                                              </td>
 
                                              <td class="col-sm-4 paddingadd">
-                                                  <input class="effect-9" type="text"
+                                                  <input class="effect-9" type="text"  formControlName="ing_qty"
                                                        placeholder="Quantity" />
-                                                  <span class="focus-border">
-                                                       <i></i>
-                                                  </span>
                                              </td>
 
                                              <td class="col-sm-4 paddingadd">
-                                                  <input class="effect-9" type="text" placeholder="Unit" />
-                                                  <span class="focus-border">
-                                                       <i></i>
-                                                  </span>
-                                             </td>
+                                                  <input class="effect-9" type="text" 
+                                                  formControlName="ing_unit" placeholder="Unit" />
+                                              </td>
 
-
-                                             <td class="col-sm-2"><a class="deleteRow"></a>
-
+                                             <td class="col-sm-2">
+                                                  <button type="button" 
+                                                  id="addrow" 
+                                                  class="btn btn-sm btn-block" 		
+                                                  (click)="delete_secondary_ingredients()">		
+                                                  <i class="fa fa-trash trash" aria-hidden="true"></i>		
+                                                  </button>
                                              </td>
                                         </tr>
 
@@ -121,16 +119,17 @@
                                    <tfoot>
                                         <tr>
                                              <td colspan="5" style="text-align: left;">
-                                                  <input type="button" class="btn btn-lg btn-block "
-                                                       id="addrow" value="Add Row" />
+                                             <button type="button" class="btn btn-lg btn-block" id="addrow"
+                                                       (click)="add_sceondary_ingredients()">Add More Ingredients</button>
                                              </td>
                                         </tr>
                                         <tr>
                                         </tr>
                                    </tfoot>
                               </table>
-                         </div> -->
-                    <input type="submit" class="btn btn-success" value="Add">
+                         </div>
+                    <input type="submit" class="btn btn-success" value="Submit Recipe">
+                    <span>{{this.displayMessage}}</span>
                     </form>
                </div>
 

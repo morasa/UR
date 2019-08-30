@@ -15,47 +15,32 @@ export class UploadService {
     return this.http.get<any[]>(`${config.apiUrl}/api/menus/list`);
   }
 
-  add(recipe) {
-    let currentUser = this.loginService.currentUserValue;
-    /*let recipeObj = {
-      "recipe_name": recipe.recipeName,
-      "recipe_description": recipe.recipeDescription,
-      "recipe_no_of_persons": recipe.recipePersons,
-      "recipe_kilo_grams": recipe.recipeWeight,
-      "recipe_image": recipe.recipefile,
-      "primary_ingredients": [
-        {
-          "ing_name": "chillis",
-          "ing_qty": 4,
-          "ing_unit": "unit"
-        },
-        {
-          "ing_name": "chillis",
-          "ing_qty": 4,
-          "ing_unit": "unit"
-        }
-      ],
-      "secondary_ingredients": [
-        {
-          "ing_name": "chillis",
-          "ing_qty": 4,
-          "ing_unit": "unit"
-        },
-        {
-          "ing_name": "chillis",
-          "ing_qty": 4,
-          "ing_unit": "unit"
-        }
-      ]
-    }*/
-    recipe.append("created_by",currentUser.username);
+  add(recipeObj, file) {
     const options = {} as any
-    return this.http.post(`${config.apiUrl}/api/upload/recipe`, recipe, options);
-  }
+    let currentUser = this.loginService.currentUserValue;
 
-  delete(id: string) {
-    return this.http.delete(`${config.apiUrl}/api/menus/delete/${id}`);
-  }
+    let resonseKeyMap = {
+        "recipeName":"recipe_name",
+        "recipeDescription":"recipe_description",
+        "recipeWeight":"recipe_no_of_persons",
+        "recipePersons":"recipe_kilo_grams"
+    }
 
+    const formData = new FormData();
+
+    Object.keys(recipeObj).forEach(key => {
+      if(key == "ing_primary_ingredients" || key == "ing_secondary_ingredients"){
+        formData.append(key, JSON.stringify(recipeObj[key]));
+      }else{
+        formData.append(resonseKeyMap[key], recipeObj[key]);
+      }
+    });
+
+    formData.append('recipe_img', file);
+    formData.append("created_by",currentUser.usercode);
+    formData.append("is_published","no");
+
+    return this.http.post(`${config.apiUrl}/api/upload/recipe`, formData, options);
+  }
 
 }

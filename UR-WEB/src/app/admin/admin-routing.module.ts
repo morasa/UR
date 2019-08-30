@@ -6,7 +6,8 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { HeaderComponent } from './header/header.component';
 import { RolesComponent } from './roles/roles.component';
 import { UsersComponent } from './users/users.component';
-import { MenuAccessComponent } from './menu-access/menu-access.component'
+import { MenuAccessComponent } from './menu-access/menu-access.component';
+import { AdminRecipeComponent } from './admin-recipe/admin-recipe.component';
 
 const routes: Routes = [
       {
@@ -41,6 +42,11 @@ const routes: Routes = [
                     path: 'menuacess',
                     outlet: 'display',
                     component: MenuAccessComponent    
+                  },
+                  {
+                    path: 'adminRecipe',
+                    outlet: 'display',
+                    component: AdminRecipeComponent    
                   }
                 ]
       }

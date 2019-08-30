@@ -37,6 +37,9 @@ const recipe_schema = new mongoose.Schema({
   created_by: {
     type: String
   },
+  is_published:{
+    type: String
+  },
   created_on: {
     type: Date,
     default: Date.now

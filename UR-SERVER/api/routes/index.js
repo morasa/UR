@@ -52,5 +52,7 @@ router.route("/api/access/list/:role_code")
 router.route("/api/upload/recipe")
 .get(recipes.list)
 .post(upload.single('recipe_img'),recipes.create);
-
-      
+router.route("/api/recipe/list/:user_code")
+.get(recipes.byUserName)     
+router.route("/api/publish/recipe")
+.patch(recipes.publishRecipe)     

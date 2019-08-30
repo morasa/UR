@@ -10,9 +10,10 @@ import { HeaderComponent } from './header/header.component';
 import { RolesComponent } from './roles/roles.component';
 import { UsersComponent } from './users/users.component';
 import { MenuAccessComponent } from './menu-access/menu-access.component';
+import { AdminRecipeComponent } from './admin-recipe/admin-recipe.component';
 
 @NgModule({
-  declarations: [MenusComponent, AdminComponent, SideMenuComponent, HeaderComponent, RolesComponent, UsersComponent, MenuAccessComponent],
+  declarations: [MenusComponent, AdminComponent, SideMenuComponent, HeaderComponent, RolesComponent, UsersComponent, MenuAccessComponent, AdminRecipeComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,
